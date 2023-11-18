@@ -13,11 +13,11 @@ function obterMensagens() {
     });
 
     consulta.done(function(data) {
-        data.forEach(function(mensagem) {
+        data.forEach(function(dado) {
             var linha = '<tr>' +
-                            '<td>' + mensagem.nome + '</td>' +
-                            '<td>' + mensagem.email + '</td>' +
-                            '<td>' + mensagem.mensagem + '</td>' +
+                            '<td>' + dado.nome + '</td>' +
+                            '<td>' + dado.email + '</td>' +
+                            '<td>' + dado.mensagem + '</td>' +
                         '</tr>';
             tabelaMensagens.append(linha);
         });
