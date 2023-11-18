@@ -9,7 +9,7 @@ function obterMensagens() {
         dataType: 'json',
         async: false
     }).fail(function(){
-        console.log('Erro ao obter mensagens da API.');
+        alert('Erro ao obter mensagens da API.');
     });
 
     consulta.done(function(data) {
