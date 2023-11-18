@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial Quantum</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/images/icon.png" type="image/png">
+</head>
+<body>
+
+    <div class="menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <li><a href="/html/login.html">Área Administrativa</a></li>
+        </ul>
+    </div>
+
+    <div id="home" class="container">
+        <h1>Bem-vindo a Central de suporte ao cliente Quantum Dynamics Solutions</h1>
+        <p>É com grande prazer que estendemos as boas-vindas a você. 
+            Sua confiança e parceria são fundamentais para alcançarmos
+            nossos objetivos compartilhados.</p>
+
+        <p>Valorizamos suas sugestões e contribuições, pois elas são essenciais 
+            para continuarmos aprimorando nossa oferta. Estamos comprometidos em 
+            proporcionar a você uma experiência positiva e satisfatória na Quantum. 
+        </p>
+
+        <p>Estamos à disposição para atendê-lo e apoiá-lo em cada etapa de sua jornada conosco.</p>
+
+        <p>Atenciosamente,<br>
+        A equipe Quantum Dynamics Solutions!</p>
+
+    </div>
+
+    <div id="contact" class="footer-container">
+        <h1>Contato</h1>
+        <form id="form-contact" >
+            <div class="form-control">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-control">
+                <label for="email">E-mail:</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div class="form-control">
+                <label for="message">Descrição:</label>
+                <textarea name="message" id="message"></textarea>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/home.js"></script>
+
+</body>
+</html>
