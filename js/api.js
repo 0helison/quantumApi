@@ -1,4 +1,22 @@
+function obterMensagens() {
 
+    var retorno = [];
+
+    var consulta = $.ajax({
+        url: 'https://app-uniesp-p2-43622fe4ead4.herokuapp.com/mensagens',
+        method: 'GET',
+        dataType: 'json',
+        async: false
+    }).fail(function(){
+        return retorno;
+    });
+
+    consulta.done(function(data) {
+        retorno = data;
+    });
+
+    return retorno;
+}
 
 function inserirMensagem(obj) {
 

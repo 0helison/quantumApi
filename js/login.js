@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#form-login").submit(function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         var email = $("#emailLogin").val();
         var senha = $("#passwordLogin").val();
@@ -16,10 +16,14 @@ $(document).ready(function() {
         $("#passwordLogin").val("");
 
         if (resultadoValidacao) {
+           
+            obterMensagens();
             window.location.href = "/html/list.html";
         } else {
-            alert("Dados inválidos")
+            alert("Dados inválidos");
         }
-        
     });
 });
+
+
+
