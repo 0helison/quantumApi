@@ -1,22 +1,29 @@
 function obterMensagens() {
+    var tabelaMensagens = $("#table-message tbody");
 
-    var retorno = [];
+    tabelaMensagens.empty();
 
-    var consulta = $.ajax({
+    $.ajax({
         url: 'https://app-uniesp-p2-43622fe4ead4.herokuapp.com/mensagens',
         method: 'GET',
         dataType: 'json',
-        async: false
-    }).fail(function(){
-        return retorno;
+        success: function(data) {
+            data.forEach(function(mensagem) {
+                var linha = '<tr>' +
+                                '<td>' + mensagem.nome + '</td>' +
+                                '<td>' + mensagem.email + '</td>' +
+                                '<td>' + mensagem.mensagem + '</td>' +
+                            '</tr>';
+                tabelaMensagens.append(linha);
+            });
+        },
+        error: function() {
+            alert('Erro ao obter mensagens da API.');
+        }
     });
-
-    consulta.done(function(data) {
-        retorno = data;
-    });
-
-    return retorno;
 }
+
+obterMensagens();
 
 function inserirMensagem(obj) {
 
@@ -30,6 +37,29 @@ function inserirMensagem(obj) {
         contentType: 'application/json',
     });
 }
+
+$("#form-contact").submit(function(event) {
+    event.preventDefault(); 
+
+    var nome = $("#name").val();
+    var email = $("#email").val();
+    var mensagem = $("#message").val();
+
+    var obj = {
+        nome: nome,
+        email: email,
+        mensagem: mensagem
+    };
+
+    inserirMensagem(obj);
+
+    $("#name").val("");
+    $("#email").val("");
+    $("#message").val("");
+
+    alert("Mensagem enviada com sucesso!");
+}); 
+
 
 function validarUsuario(objLoginSenha) {
 
@@ -57,3 +87,27 @@ function validarUsuario(objLoginSenha) {
 
     return retorno;
 }
+
+$("#form-login").submit(function(event) {
+    event.preventDefault();
+
+    var email = $("#emailLogin").val();
+    var senha = $("#passwordLogin").val();
+
+    var objLoginSenha = {
+        email: email,
+        senha: senha
+    };
+
+    var resultadoValidacao = validarUsuario(objLoginSenha);
+
+    $("#emailLogin").val("");
+    $("#passwordLogin").val("");
+
+    if (resultadoValidacao) {
+        window.location.href = "/html/list.html";
+    } else {
+        alert("Dados inválidos");
+    }
+    
+});
